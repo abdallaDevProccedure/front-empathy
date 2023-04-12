@@ -12,13 +12,18 @@ export const getAllUsers = async() => {
 
 export const getUser = async(email: string, password: string) => {
     try {
-        const response = await axios.get(`http://localhost:3001/user?email=${email}&password=${password}`);
+        const response = await axios.get("http://localhost:3001/user", {
+            params: {
+                email: email,
+                password: password
+            }
+        });
         return response.data;
     } catch (error) {
         console.error(error);
         return null;
     }
-}
+};
 
 export const getAllProducts = async() => {
     try {
