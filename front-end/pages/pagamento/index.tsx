@@ -7,7 +7,7 @@ const PagamentoPage = () => {
   const [codigoSeguranca, setCodigoSeguranca] = useState('');
   const [price, setPrice] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log('Dados de pagamento enviados:', {
       nome,
@@ -19,8 +19,10 @@ const PagamentoPage = () => {
 
   useEffect(() => {
     const produtosLocalStorage = localStorage.getItem('price');
-    setPrice(produtosLocalStorage)
-  }, [])
+    if (produtosLocalStorage) {
+      setPrice(JSON.parse(produtosLocalStorage));
+    }
+  }, []);
 
   return (
     <>

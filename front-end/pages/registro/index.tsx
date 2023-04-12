@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../api/apiAll';
+import Link from 'next/link';
 
 const Registro = () => {
   const [name, setName] = useState('');
@@ -84,9 +85,9 @@ const Registro = () => {
         </form>
         <p className="mt-4 text-gray-500 text-sm text-center">
           Já tem uma conta?{' '}
-          <a href="/login" className="text-blue-500">
+          <Link href="/login" className="text-blue-500">
             Faça o login
-          </a>
+          </Link>
         </p>
       </div>
     </div>

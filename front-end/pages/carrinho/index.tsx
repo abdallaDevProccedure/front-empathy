@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+interface Produto {
+  id: number;
+  name: string;
+  desc: string;
+  price: number;
+  img: string;
+}
+
 const CarrinhoPage = () => {
-  const [produtos, setProdutos] = useState([]);
+  const [produtos, setProdutos] = useState<Produto[]>([]); // Especificar o tipo de dados do estado 'produtos'
   const [total, setTotal] = useState(0);
   const router = useRouter();
 
@@ -26,7 +34,7 @@ const CarrinhoPage = () => {
     calcularTotal();
   }, [produtos]);
 
-  const handleRemoverProduto = (id) => {
+  const handleRemoverProduto = (id: any) => {
     const novosProdutos = produtos.filter(produto => produto.id !== id);
     setProdutos(novosProdutos);
     localStorage.setItem('cartItems', JSON.stringify(novosProdutos));
