@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getAllUsers = async() => {
     try {
-        const response = await axios.get('http://192.168.0.11 172.19.0.1:3001/user');
+        const response = await axios.get('http://192.168.0.11:3001/user');
         return response.data;
     } catch (error) {
         console.error(error);
@@ -12,7 +12,7 @@ export const getAllUsers = async() => {
 
 export const getUser = async(email: string, password: string) => {
     try {
-        const response = await axios.get("http://192.168.0.11 172.19.0.1:3001/user", {
+        const response = await axios.get("http://192.168.0.11:3001/user", {
             params: {
                 email: email,
                 password: password
@@ -27,7 +27,7 @@ export const getUser = async(email: string, password: string) => {
 
 export const getAllProducts = async() => {
     try {
-        const response = await axios.get('http://192.168.0.11 172.19.0.1:3001/products');
+        const response = await axios.get('http://192.168.0.11:3001/products');
         return response.data;
     } catch (error) {
         console.error(error);
@@ -36,5 +36,5 @@ export const getAllProducts = async() => {
 }
 
 export default axios.create({
-    baseURL: "http://192.168.0.11 172.19.0.1:3001"
+    baseURL: "http://192.168.0.11:3001"
 })
